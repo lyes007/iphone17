@@ -85,40 +85,15 @@ export default function Home() {
         flex: '1',
         position: 'relative',
         zIndex: 1,
-        minHeight: '400px',
-        backgroundColor: '#f0f0f0',
       }}>
         <img 
           src="/iphone-17_overview__d4o74q28yjma.png" 
           alt="iPhone 17 Overview" 
-          onError={(e) => {
-            console.error('❌ IMAGE FAILED TO LOAD');
-            console.error('Tried URL:', e.currentTarget.src);
-            console.error('Full error:', e);
-            // Show error message
-            const container = e.currentTarget.parentElement;
-            if (container) {
-              container.innerHTML = `
-                <div style="text-align: center; color: red; padding: 20px;">
-                  <p>❌ Image failed to load</p>
-                  <p>Tried: ${e.currentTarget.src}</p>
-                  <p>Check Network tab for details</p>
-                </div>
-              `;
-            }
-          }}
-          onLoad={() => {
-            console.log('✅ IMAGE LOADED SUCCESSFULLY');
-          }}
           style={{
             width: '100%',
             height: 'auto',
             maxWidth: '100%',
             objectFit: 'contain',
-            display: 'block',
-            visibility: 'visible',
-            opacity: 1,
-            border: '2px solid blue',
           }}
         />
       </div>
