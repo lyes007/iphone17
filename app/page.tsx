@@ -29,7 +29,8 @@ export default function Home() {
     return (
       <div style={{
         opacity: fadeOut ? 0 : 1,
-        transition: 'opacity 1s ease-out',
+        transition: 'opacity 0.6s ease-out',
+        pointerEvents: fadeOut ? 'none' : 'auto',
       }}>
         <LoadingAnimation />
       </div>
@@ -82,15 +83,27 @@ export default function Home() {
         padding: '40px 20px',
         animation: 'slideUp 1.2s ease-out 0.3s both',
         flex: '1',
+        position: 'relative',
+        zIndex: 1,
       }}>
         <img 
           src="/iphone-17_overview__d4o74q28yjma.png" 
           alt="iPhone 17 Overview" 
+          onError={(e) => {
+            console.error('Image failed to load:', e);
+            console.error('Image src:', e.currentTarget.src);
+          }}
+          onLoad={() => {
+            console.log('Image loaded successfully');
+          }}
           style={{
             width: '100%',
             height: 'auto',
             maxWidth: '100%',
             objectFit: 'contain',
+            display: 'block',
+            visibility: 'visible',
+            opacity: 1,
           }}
         />
       </div>
